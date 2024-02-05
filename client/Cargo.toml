@@ -16,5 +16,5 @@ log = "0.4.20"
 ratatui = { version = "0.24.0", features = ["crossterm", "underline-color"] }
 tokio = { version = "1.34.0", features = ["full"] }
 url = "2.5.0"
-tokio-tungstenite = "0.20.1"
+tokio-tungstenite = { version = "0.20.1", features = ["rustls-tls-native-roots"] }
 futures-channel = "0.3.29"

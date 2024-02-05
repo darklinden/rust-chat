@@ -1,0 +1,4 @@
+.env
+.gitingore
+deploy.sh
+sync-services.sh

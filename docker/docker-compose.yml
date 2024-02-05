@@ -1,0 +1,41 @@
+version: "3"
+services:
+  
+  ws-server:
+    container_name: "ws-server"
+    image: darklinden/rust-chat-server
+    restart: always
+    working_dir: /app
+    env_file:
+      - config.env
+    command: /app/ws-server
+    ports:
+      - "3000:3000"
+    logging:
+      driver: "local"
+      options:
+          max-file: 5
+          max-size: 10m
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - type: bind
+        source: ./nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+    ports:
+      - "14514:14514"
+    expose:
+      - "14514"
+    restart: always
+    depends_on:
+      - ws-server
+    logging:
+      driver: "local"
+      options:
+          max-file: 5
+          max-size: 10m
+

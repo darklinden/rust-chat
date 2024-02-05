@@ -1,0 +1,10 @@
+.DS_Store
+*.key
+*.crt
+*.key.pub
+*.tar.gz
+*.tar
+*.log
+*.dump
+.env
+nginx/ssl/*

@@ -34,7 +34,7 @@ async fn main() -> std::io::Result<()> {
 
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("debug"));
     std::env::set_var("RUST_BACKTRACE", "1");
-    let server_port = 9000;
+    let server_port = 3000;
     // start chat server actor
     let server = server::WsServer::new().start();
 
